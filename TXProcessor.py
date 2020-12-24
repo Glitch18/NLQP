@@ -19,11 +19,10 @@ class TX_Processor:
         for line in self.lines:
             print(line)
 
-    def pos_tag(self):
-        for line in self.lines:
-            sen = self.model(line)
-            for word in sen:
-                print(f'{word.text:{12}} {word.pos_:{10}} {word.tag_:{8}} {spacy.explain(word.tag_)}')
+    def pos_tag(self,line):
+        sen = self.model(line)
+        for word in sen:
+            print(f'{word.text:{12}} {word.pos_:{10}} {word.tag_:{8}} {spacy.explain(word.tag_)}')
 
     def isActive(self,sentence):
         line = self.model(sentence)
