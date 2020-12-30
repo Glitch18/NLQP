@@ -29,9 +29,12 @@ class Sentence:
         self.adjectives = list()
         self.adverbs = list()
         self.nouns = list()
+        self.subject_flag = False
 
     def set_subject(self,subj):
+        if(self.subject_flag): return
         self.subject += subj
+        self.subject_flag = True
 
     def set_object(self,obj):
         self.direct_obj += obj
@@ -61,22 +64,14 @@ class Sentence:
         self.adverbs.append(obj)
 
     def show_details(self):
-        #self.id = id
-        #self.indirect_obj = list()
-        #self.verbs = list()
-        #self.adjectives = list()
-        #self.adverbs = list()
-        #self.nouns = list()
         print("From this line the following data was extracted: ")
         print(f"Main subject: {self.subject}")
         print(f"line id: {self.id}")
-        print(f"indirect objects: {self.indirect_obj}")
         print(f"verbs: {self.verbs}")
         print(f"adjectives: {self.adjectives}")
         print(f"adverbs: {self.adverbs}")
         print(f"other nouns: {self.nouns}")
         print("\n")
-
 
 class TX_Processor:
     def __init__(self, in_text):
